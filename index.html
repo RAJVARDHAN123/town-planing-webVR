@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Town Planing</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+  </head>
+  <body>
+    <a-scene background="color: #FAFAFA" inspector-plugin-recast>
+      <a-assets>
+        <img id="ground" src="assets/texture/ground-texture.jpg" />
+        <img id="ground-NRM" src="assets/texture/ground-texture-NRM.jpg" />
+        <a-asset-item id="sun" src="assets/sun/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="flying_crow"
+          src="assets/flying_crow/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="mountain"
+          src="assets/mountain/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item id="temple" src="assets/temple/scene.gltf"></a-asset-item>
+        <a-asset-item id="pond" src="assets/pond/scene.gltf"></a-asset-item>
+        <a-asset-item id="house" src="assets/house/scene.gltf"></a-asset-item>
+        <a-asset-item id="forest" src="assets/forest/scene.gltf"></a-asset-item>
+        <a-asset-item id="dog" src="assets/dog/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="city_center"
+          src="assets/city_center/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="baby_chicken"
+          src="assets/baby_chicken/scene.gltf"
+        ></a-asset-item>
+
+        <a-asset-item id="wheat" src="assets/wheat/scene.gltf"></a-asset-item>
+
+        <!-- <a-asset-item id="bridge" src="assets/bridge/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="train-track"
+          src="assets/train_track/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item id="train" src="assets/train/scene.gltf"></a-asset-item>-->
+        <a-asset-item
+          id="light_house"
+          src="assets/light_house/scene.gltf"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-sky
+        geometry="primitive: sphere"
+        material="shader: gradient; topColor:128 128 0; bottomColor: 255 100 100; offset: 0.0001"
+        position="0 0 0"
+        radius="60"
+        theta-length="90"
+      ></a-sky>
+
+      <a-cylinder
+        id="ground"
+        src="#ground"
+        radius="60"
+        height="0.1"
+        repeat="20 20"
+        normal-map="#ground-NRM"
+        normal-texture-repeat="20 20"
+      ></a-cylinder>
+
+      <!-- Sun -->
+      <a-entity
+        scale="0.05 0.05 0.05"
+        gltf-model="#sun"
+        position="0 40 0"
+        rotation="0 -90 0"
+      ></a-entity>
+
+      <!-- flying crow -->
+      <a-entity
+        scale="0.01 0.01 0.01"
+        gltf-model="#flying_crow"
+        position="10 45 0"
+        rotation="0 0 0"
+      ></a-entity>
+      <a-entity
+        scale="0.01 0.01 0.01"
+        gltf-model="#flying_crow"
+        position="10 42 0"
+        rotation="0 0 0"
+      ></a-entity>
+      <a-entity
+        scale="0.01 0.01 0.01"
+        gltf-model="#flying_crow"
+        position="13 42 0"
+        rotation="0 0 0"
+      ></a-entity>
+      <a-entity
+        scale="0.01 0.01 0.01"
+        gltf-model="#flying_crow"
+        position="12 44 0"
+        rotation="0 0 0"
+      ></a-entity>
+      <a-entity
+        scale="0.01 0.01 0.01"
+        gltf-model="#flying_crow"
+        position="15 46 0"
+        rotation="0 0 0"
+      ></a-entity>
+
+      <!-- City center -->
+      <a-entity
+        scale="2 2 2"
+        gltf-model="#city_center"
+        position="-5 1 20"
+        rotation="0 0 0"
+      ></a-entity>
+
+      <!-- LEFT side Forest -->
+      <a-entity
+        gltf-model="#forest"
+        position="-30 2 15"
+        scale="8 8 8"
+        rotation="0 120 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#forest"
+        position="-35 2 -15"
+        scale="8 8 8"
+        rotation="0 10 0"
+      >
+      </a-entity>
+      <!-- Mountain -->
+      <a-entity
+        gltf-model="#mountain"
+        position="-23 3 -40"
+        scale="0.05 0.05 0.05"
+      ></a-entity>
+      <a-entity
+        gltf-model="#mountain"
+        position="8 3 -45"
+        scale="0.05 0.05 0.05"
+      ></a-entity>
+      <a-entity
+        gltf-model="#mountain"
+        position="38 3 -25"
+        scale="0.05 0.05 0.05"
+      ></a-entity>
+
+      <!-- Pond -->
+      <a-entity
+        gltf-model="#pond"
+        position="11 0.8 -23"
+        scale="7 7 7"
+      ></a-entity>
+
+      <!-- RIGHT side Forest -->
+      <a-entity
+        gltf-model="#forest"
+        position="25 2 33"
+        scale="10 10 10"
+        rotation="0 120 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#forest"
+        position="35 2 5"
+        scale="10 10 10"
+        rotation="0 10 0"
+      >
+      </a-entity>
+
+      <!-- House  -->
+      <a-entity
+        gltf-model="#house"
+        position="-20 2.7 0"
+        scale="3 3 3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="-20 2.7 -25"
+        scale="3 3 3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="-10 2.7 -25"
+        scale="3 3 3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="-15 2.7 -20"
+        scale="3 3 3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#house"
+        position="-16 2.7 10"
+        scale="4 4 4"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="12 2.7 30"
+        scale="4 4 4"
+        rotation="0 -90 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="13 2.7 10"
+        scale="4 4 4"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="-10 2.7 -5"
+        scale="4 4 4"
+        rotation="0 0 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#house"
+        position="-5 2.7 5"
+        scale="4 4 4"
+        rotation="0 0 0"
+      >
+      </a-entity>
+
+      <!-- Dog -->
+      <a-entity
+        gltf-model="#dog"
+        position="15 0 45"
+        scale="0.005 0.005 0.005"
+        rotation="0 40 0"
+      >
+      </a-entity>
+      <a-entity
+        gltf-model="#dog"
+        position="20 0 47"
+        scale="0.005 0.005 0.005"
+        rotation="0 -40 0"
+      >
+      </a-entity>
+
+      <!-- Temple -->
+      <a-entity
+        gltf-model="#temple"
+        position="-40 1 30"
+        scale="0.3 0.3 0.3"
+        rotation="0 50 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#temple"
+        position="-50 1 20"
+        scale="0.3 0.3 0.3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#temple"
+        position="-45 1 5"
+        scale="0.3 0.3 0.3"
+        rotation="0 0 0"
+      >
+      </a-entity>
+
+      <!-- Baby Chicken -->
+      <a-entity
+        gltf-model="#baby_chicken"
+        position="20 0.2 50"
+        scale="0.001 0.001 0.001"
+        rotation="0 50 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#baby_chicken"
+        position="21 0.2 50"
+        scale="0.001 0.001 0.001"
+        rotation="0 50 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#baby_chicken"
+        position="21 0.2 51"
+        scale="0.001 0.001 0.001"
+        rotation="0 -50 0"
+      >
+      </a-entity>
+
+      <a-entity
+        gltf-model="#baby_chicken"
+        position="20.5 0.2 51"
+        scale="0.001 0.001 0.001"
+        rotation="0 -120 0"
+      >
+      </a-entity>
+      <!-- Wheat -->
+      <a-entity gltf-model="#wheat" position="45 0.2 4" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="48 0.2 4" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="51 0.2 4" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="53 0.2 4" scale="0.2 0.3 0.2">
+      </a-entity>
+
+      <a-entity gltf-model="#wheat" position="45 0.2 9" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="48 0.2 9" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="51 0.2 9" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="53 0.2 9" scale="0.2 0.3 0.2">
+      </a-entity>
+
+      <a-entity gltf-model="#wheat" position="45 0.2 15" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="48 0.2 15" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="51 0.2 15" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="53 0.2 15" scale="0.2 0.3 0.2">
+      </a-entity>
+
+      <a-entity gltf-model="#wheat" position="45 0.2 19" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="48 0.2 19" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="51 0.2 19" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="53 0.2 19" scale="0.2 0.3 0.2">
+      </a-entity>
+
+      <a-entity gltf-model="#wheat" position="44 0.2 25" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="47 0.2 25" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="50 0.2 25" scale="0.2 0.3 0.2">
+      </a-entity>
+      <a-entity gltf-model="#wheat" position="52 0.2 25" scale="0.2 0.3 0.2">
+      </a-entity>
+
+      <!-- Light house -->
+
+      <a-entity
+        gltf-model="#light_house"
+        position="-3 2 -10"
+        scale="7 7 7"
+        rotation="0 40 0"
+      >
+      </a-entity>
+
+      <a-entity id="main-camera" position="-20 40 120" rotation="0 -10 0">
+        <a-camera user-height="1.9"></a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
