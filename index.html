@@ -49,6 +49,10 @@
           src="assets/hospital/scene.gltf"
         ></a-asset-item>
         <a-asset-item id="gym" src="assets/gym/scene.gltf"></a-asset-item>
+        <a-asset-item
+          id="ambulance"
+          src="assets/ambulance/scene.gltf"
+        ></a-asset-item>
       </a-assets>
 
       <a-sky
@@ -142,6 +146,15 @@
         position="-45 3 5"
         scale="0.03 0.03 0.03"
         rotation="0 -40 0"
+      >
+      </a-entity>
+
+      <!-- Ambulance -->
+      <a-entity
+        gltf-model="#ambulance"
+        position="-40 0 35"
+        scale="0.5 0.5 0.5"
+        rotation="0 -130 0"
       >
       </a-entity>
 
@@ -364,7 +377,7 @@
       >
       </a-entity>
 
-      <a-entity id="main-camera" position="-20 0 45" rotation="0 -10 0">
+      <a-entity id="main-camera" position="-25 0 40" rotation="0 -10 0">
         <a-camera user-height="1.9"></a-camera>
       </a-entity>
     </a-scene>
